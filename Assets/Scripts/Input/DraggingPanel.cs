@@ -31,7 +31,6 @@ namespace Trell.Flexus_TZ.UI
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            CurrentPosition = eventData.position;
             DragEnded?.Invoke();
             IsDragging = false;
         }

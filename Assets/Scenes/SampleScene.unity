@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 802814516}
   - component: {fileID: 802814518}
   m_Layer: 0
-  m_Name: Image
+  m_Name: DraggingPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,6 +539,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 731581185247713771, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
   m_PrefabInstance: {fileID: 6847064012868489897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1530916087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6277106901490559765, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
+  m_PrefabInstance: {fileID: 6847064012868489897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1530916092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530916087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0dc14fe04c4717428b442d02aa29fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _draggingPanel: {fileID: 802814518}
+  _mass: 5
 --- !u!1 &1590507308
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1056390183}
-  _offset: {x: -0.09, y: 24.6, z: -8.4}
+  _offset: {x: 0, y: 24.6, z: -8.4}
   _rotation: {x: 75, y: 0, z: 0}
 --- !u!20 &1687258584
 Camera:
@@ -724,7 +743,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_LocalRotation: {x: 0.6087614, y: -0, z: -0, w: 0.7933533}
-  m_LocalPosition: {x: -0.09, y: 24.6, z: -8.4}
+  m_LocalPosition: {x: 0, y: 24.6, z: -8.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1014269297}
@@ -1020,6 +1039,10 @@ PrefabInstance:
     - target: {fileID: 731581185247713771, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4491379540716658925, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
+      propertyPath: m_Constraints
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 6057815916875543543, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
       propertyPath: m_LocalPosition.y
