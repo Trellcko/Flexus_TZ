@@ -22,12 +22,13 @@ namespace Trell.Flexus_TZ.Visual
         {
             if(_draggingPanel.IsDragging)
             {
-                Vector3 inverseDragDirection = _draggingPanel.StartPosition - _draggingPanel.CurrentPosition;
-                inverseDragDirection.y = 0;
+                Vector3 dragDirection = _draggingPanel.StartPosition - _draggingPanel.CurrentPosition;
+                dragDirection.z = dragDirection.y;
+                dragDirection.y = 0;
 
-                SetLength(Vector3.Distance(_draggingPanel.CurrentPosition, _draggingPanel.StartPosition));
+                SetLength(Vector3.Distance(_draggingPanel.CurrentPosition, _draggingPanel.StartPosition)/10);
                 
-                LookAt(inverseDragDirection);
+                LookAt(dragDirection);
             }
         }
 

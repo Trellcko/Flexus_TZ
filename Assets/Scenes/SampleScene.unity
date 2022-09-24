@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _draggingPanel: {fileID: 802814518}
-  _mass: 5
+  _mass: 1
 --- !u!1 &1590507308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,7 +1042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4491379540716658925, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
       propertyPath: m_Constraints
-      value: 36
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 6057815916875543543, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
       propertyPath: m_LocalPosition.y

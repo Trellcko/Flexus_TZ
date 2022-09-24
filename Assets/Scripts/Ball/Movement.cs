@@ -29,18 +29,20 @@ namespace Trell.Flexus_TZ.Ball
         {
             _rigidbody.velocity = Vector3.MoveTowards(_rigidbody.velocity, _newVelocity, _velocityChange * Time.fixedDeltaTime);
             _newVelocity -= _newVelocity.normalized * Time.fixedDeltaTime;
+            _rigidbody.AddTorque(_rigidbody.velocity);
         }
 
         private void OnDragBegined()
         {
-            Vector3 force = (_draggingPanel.StartPosition - _draggingPanel.CurrentPosition);
+            Vector3 force = (_draggingPanel.StartPosition - _draggingPanel.CurrentPosition) / 10;
+            force.z = force.y;
             force.y = 0;
             AddForce(force);
         }
 
         private void AddForce(Vector3 force)
         {
-            _newVelocity += force / _mass;
+            _newVelocity = force / _mass;
             _velocityChange = force.magnitude; 
         }
     }
