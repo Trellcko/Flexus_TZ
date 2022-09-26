@@ -1,3 +1,4 @@
+using System;
 using Trell.Flexus_TZ.UI;
 using UnityEngine;
 
@@ -7,13 +8,14 @@ namespace Trell.Flexus_TZ.Ball
 	public class Movement : MonoBehaviour
 	{
 		[SerializeField] private DraggingPanel _draggingPanel;
+        [SerializeField] private CollisionHandler _collisionHandler;
         [SerializeField] private float _mass = 2f;
+        [SerializeField] private AnimatorController _bounceReceiver;
+        [SerializeField] private ParticleSystem _dustEffect;
 
         private Rigidbody _rigidbody;
         
-
-        private float _velocityChange;
-        private Vector3 _newVelocity;
+        private Vector3 _lastVelocity;
 
         private void Awake()
         {
@@ -23,13 +25,17 @@ namespace Trell.Flexus_TZ.Ball
         private void OnEnable()
         {
             _draggingPanel.DragEnded += OnDragBegined;
+            _collisionHandler.WallCollided += OnWallColided;
         }
 
         private void FixedUpdate()
         {
-            _rigidbody.velocity = Vector3.MoveTowards(_rigidbody.velocity, _newVelocity, _velocityChange * Time.fixedDeltaTime);
-            _newVelocity -= _newVelocity.normalized * Time.fixedDeltaTime;
-            _rigidbody.AddTorque(_rigidbody.velocity);
+            _lastVelocity = _rigidbody.velocity;
+        }
+        private void OnDisable()
+        {
+            _draggingPanel.DragEnded -= OnDragBegined;
+            _collisionHandler.WallCollided -= OnWallColided;
         }
 
         private void OnDragBegined()
@@ -40,10 +46,25 @@ namespace Trell.Flexus_TZ.Ball
             AddForce(force);
         }
 
+        private void OnWallColided(ContactPoint contactPoint)
+        {
+            Reflect(contactPoint.normal);
+            _dustEffect.transform.position = contactPoint.point;
+            _dustEffect.transform.rotation = Quaternion.LookRotation(contactPoint.normal);
+            _dustEffect.Play();
+        }
+
+        private void Reflect(Vector3 normal)
+        {
+            float speed = _lastVelocity.magnitude;
+            Vector3 direct = Vector3.Reflect(_lastVelocity.normalized, normal);
+            _rigidbody.velocity = direct * speed;
+            _bounceReceiver.PlayBounchingAnimation(_rigidbody.velocity.magnitude, normal);
+        }
+
         private void AddForce(Vector3 force)
         {
-            _newVelocity = force / _mass;
-            _velocityChange = force.magnitude; 
+            _rigidbody.velocity += force / _mass;
         }
     }
 }
