@@ -1,25 +1,35 @@
-using System;
-using Trell.Flexus_TZ.Core;
 using UnityEngine;
 
 namespace Trell.Flexus_TZ.Ball
 {
 	public class CollisionHandler : MonoBehaviour
 	{
-		[TagProperty]
-		[SerializeField] private string _wallTag;
+        [SerializeField] private Movement _movement;
+        [SerializeField] private CollisionEvents _collisionEvents;
+        [SerializeField] private Bouncer _bouncer;
+        [SerializeField] private ParticleSystem _dustEffect;
 
-        private ContactPoint[] _contactPoints =  new ContactPoint[1];
-
-		public event Action<ContactPoint> WallCollided;
-
-        public void OnCollisionEnter(Collision collision)
+        private void OnEnable()
         {
-            if(collision.gameObject.CompareTag(_wallTag))
-            {
-                collision.GetContacts(_contactPoints);
-                WallCollided.Invoke(_contactPoints[0]);
-            }
+            _collisionEvents.WallCollided += OnWallCollided;
+        }
+
+        private void OnDisable()
+        {
+            _collisionEvents.WallCollided -= OnWallCollided;
+        }
+
+        private void OnWallCollided(ContactPoint contactPoint)
+        {
+            Vector3 normal = contactPoint.normal;
+
+            _movement.Reflect(normal);
+
+            _bouncer.PlayBounchingAnimation(_movement.Speed, normal);
+
+            _dustEffect.transform.position = contactPoint.point;
+            _dustEffect.transform.rotation = Quaternion.LookRotation(normal);
+            _dustEffect.Play();
         }
     }
 }
