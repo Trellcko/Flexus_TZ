@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _draggingPanel: {fileID: 0}
+  _draginPanelMultiplayer: 0
   _movement: {fileID: 1530916092}
 --- !u!1 &7016392448112603011
 GameObject:
@@ -409,3 +410,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lineRenderer: {fileID: 579630677532108210}
   _draggingPanel: {fileID: 0}
+  _draggingMultiplayer: 0
