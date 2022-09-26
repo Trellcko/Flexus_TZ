@@ -8,6 +8,9 @@ namespace Trell.Flexus_TZ.Visual
   		[SerializeField] private LineRenderer _lineRenderer;
         [SerializeField] private DraggingPanel _draggingPanel;
 
+        [Range(0.01f, 0.1f)]
+        [SerializeField] private float _draggingMultiplayer;
+
         private void OnEnable()
         {
             _draggingPanel.DragEnded += OnDragEnded;
@@ -26,7 +29,7 @@ namespace Trell.Flexus_TZ.Visual
                 dragDirection.z = dragDirection.y;
                 dragDirection.y = 0;
 
-                SetLength(Vector3.Distance(_draggingPanel.CurrentPosition, _draggingPanel.StartPosition)/10);
+                SetLength(dragDirection.magnitude * _draggingMultiplayer);
                 
                 LookAt(dragDirection);
             }
