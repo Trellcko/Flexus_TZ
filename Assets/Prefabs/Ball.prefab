@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 2406213433508103118}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   _ballMaterial: {fileID: 2100000, guid: 980ede9e09ed69547baa0c3ea5d4e879, type: 2}
   _ballTransform: {fileID: 731581185247713771}
   _bouncingAnimationDuration: 0.175
-  _minPowerToBounce: 2.5
+  _minPowerToBounce: 3
   _bouncingCurve:
     serializedVersion: 2
     m_Curve:
@@ -241,7 +241,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _bouncingMultiplayer: 1
+  _bouncingMultiplayer: 0.6
   _bouncingScaleMax: {x: 1.4, y: 1.4, z: 0.5}
   _boucningColor: {r: 0.7924528, g: 0.26464927, b: 0.26464927, a: 1}
 --- !u!114 &3736900619216491280

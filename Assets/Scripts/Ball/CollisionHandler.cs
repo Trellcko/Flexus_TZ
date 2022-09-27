@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace Trell.Flexus_TZ.Ball
 {
-	public class CollisionHandler : MonoBehaviour
+    [AddComponentMenu("Ball Collision Handler")]
+    public class CollisionHandler : MonoBehaviour
 	{
         [SerializeField] private Movement _movement;
         [SerializeField] private CollisionEvents _collisionEvents;

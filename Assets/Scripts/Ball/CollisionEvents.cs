@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Trell.Flexus_TZ.Ball
 {
+    [AddComponentMenu("Ball Collision Events")]
 	public class CollisionEvents : MonoBehaviour
 	{
 		[TagProperty]
