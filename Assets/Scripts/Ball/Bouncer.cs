@@ -32,7 +32,7 @@ namespace Trell.Flexus_TZ.Ball
 		/// Set Power from 1 to 10
 		/// </summary>
 		/// <param name="power">  </param>
-		public void PlayBounchingAnimation(float power, Vector3 normal)
+		public void PlayBounchingAnimation(float power, Quaternion rotation)
         {
 			power = Mathf.Clamp(power * _bouncingMultiplayer, _minPower, _maxPower);
 
@@ -43,7 +43,7 @@ namespace Trell.Flexus_TZ.Ball
 
 			Vector3 bouncingScale = CalculateBounceScale(power);
 
-			StartCoroutine(PlayBouncingAnimationCorun(bouncingScale, _boucningColor, normal));
+			StartCoroutine(PlayBouncingAnimationCorun(bouncingScale, _boucningColor, rotation));
         }
 
 		private Vector3 CalculateBounceScale(float power)
@@ -60,10 +60,8 @@ namespace Trell.Flexus_TZ.Ball
 
         }
 
-		private IEnumerator PlayBouncingAnimationCorun(Vector3 bouncingScale, Color bouncingColor, Vector3 normal)
+		private IEnumerator PlayBouncingAnimationCorun(Vector3 bouncingScale, Color bouncingColor, Quaternion rotation)
         {
-			
-			Quaternion rotation = Quaternion.LookRotation(normal);
 			float duration = 0;
 
 

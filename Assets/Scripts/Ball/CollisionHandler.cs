@@ -1,3 +1,4 @@
+using Trell.Flexus_TZ.Visual;
 using UnityEngine;
 
 namespace Trell.Flexus_TZ.Ball
@@ -6,9 +7,9 @@ namespace Trell.Flexus_TZ.Ball
 	{
         [SerializeField] private Movement _movement;
         [SerializeField] private CollisionEvents _collisionEvents;
+        [SerializeField] private DustSpawner _dustSpawner;
         [SerializeField] private Bouncer _bouncer;
-        [SerializeField] private ParticleSystem _dustEffect;
-
+        
         private void OnEnable()
         {
             _collisionEvents.WallCollided += OnWallCollided;
@@ -23,13 +24,12 @@ namespace Trell.Flexus_TZ.Ball
         {
             Vector3 normal = contactPoint.normal;
 
+            Quaternion rotationToNormal = Quaternion.LookRotation(normal);
+
             _movement.Reflect(normal);
 
-            _bouncer.PlayBounchingAnimation(_movement.Speed, normal);
-
-            _dustEffect.transform.position = contactPoint.point;
-            _dustEffect.transform.rotation = Quaternion.LookRotation(normal);
-            _dustEffect.Play();
+            _bouncer.PlayBounchingAnimation(_movement.Speed, rotationToNormal);
+            _dustSpawner.Spawn(contactPoint.point, rotationToNormal);
         }
     }
 }
