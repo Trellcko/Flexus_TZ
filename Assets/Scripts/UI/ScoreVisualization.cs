@@ -82,7 +82,6 @@ namespace Trell.Flexus_TZ.UI
             _coinTextTransform.localScale = Vector3.Lerp(fromScale, toScale, curvePercentScaling);
             
             _currentDisplayNumber = Mathf.Lerp(fromNumber, toNumber, percentText);
-            print(percentText);
 
             _coinText.SetText(_currentDisplayNumber.ToString("N0"));
             return duration;
