@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 1530916094}
   - component: {fileID: 3736900619216491280}
   - component: {fileID: 2406213433508103118}
+  - component: {fileID: 1248895248}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Player
@@ -201,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallTag: Wall
+  _coinTag: Coin
 --- !u!114 &1530916094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +277,21 @@ MonoBehaviour:
   _draggingPanel: {fileID: 0}
   _draginPanelMultiplayer: 0.07
   _movement: {fileID: 1530916092}
+--- !u!114 &1248895248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6277106901490559765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaab3ab656d3a69468b431f5ae7fe857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collisionEvents: {fileID: 1530916093}
+  _score: {fileID: 0}
+  _scoresForCoin: 50
 --- !u!1 &7016392448112603011
 GameObject:
   m_ObjectHideFlags: 0

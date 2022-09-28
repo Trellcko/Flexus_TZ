@@ -7,9 +7,12 @@ namespace Trell.Flexus_TZ.Ball
     [RequireComponent(typeof(Rigidbody))]
 	public class Movement : MonoBehaviour
 	{
+        [Min(1)]
         [SerializeField] private float _mass = 2f;
 
         public float Speed => _rigidbody.velocity.magnitude;
+
+        public Vector3 Direct => _rigidbody.velocity.normalized;
 
         private Rigidbody _rigidbody;
         

@@ -8,15 +8,15 @@ namespace Trell.Flexus_TZ.Coin
 	public class CollisionEvents : MonoBehaviour
 	{
 		[TagProperty]
-		[SerializeField] private string _playerTag;
+		[SerializeField] private string _ballTag;
 
-        public event Action PlayerCollided; 
+        public event Action BallCollided; 
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.CompareTag(_playerTag))
+            if(other.CompareTag(_ballTag))
             {
-                PlayerCollided?.Invoke();
+                BallCollided?.Invoke();
             }
         }
 

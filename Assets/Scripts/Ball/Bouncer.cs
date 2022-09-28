@@ -22,8 +22,6 @@ namespace Trell.Flexus_TZ.Ball
 
 		[SerializeField] private Color _boucningColor;
 
-		private float _halfAnimationDuration => _bouncingAnimationDuration / 2f;
-
 
 	    private readonly int _maxPower = 10;
 		private readonly int _minPower = 1;
@@ -64,35 +62,31 @@ namespace Trell.Flexus_TZ.Ball
         {
 			float duration = 0;
 
-
-			while(duration <= _halfAnimationDuration)
+			_ballTransform.rotation = rotation;
+			while (duration <= _bouncingAnimationDuration)
             {
-				duration =	BounceAnimationTick(duration, Vector3.one, bouncingScale, Color.white, bouncingColor);
-				_ballTransform.rotation = rotation;
+				duration =	BounceAnimationTick(duration, Vector3.one, bouncingScale, Color.white, bouncingColor, rotation);
+
 				yield return null;
             }
-
-			duration = 0;
-
-			while (duration <= _halfAnimationDuration)
-			{
-				duration = BounceAnimationTick(duration, bouncingScale, Vector3.one, bouncingColor, Color.white);
-				yield return null;
-			}
-
 		}
 
-		private float BounceAnimationTick(float duration, Vector3 scaleFrom, Vector3 scaleTo, Color from, Color to)
+		private float BounceAnimationTick(float duration, Vector3 scaleFrom, Vector3 scaleTo, Color from, Color to, Quaternion rotation)
         {
 			duration += Time.deltaTime;
-			float percent = Mathf.Clamp01(duration / _halfAnimationDuration);
+			float percent = Mathf.Clamp01(duration / _bouncingAnimationDuration);
+
+			if(percent <=0.5f)
+            {
+				transform.rotation = rotation;
+			}
 
 			float curvePercent = _bouncingCurve.Evaluate(percent);
 
 			Vector3 scale = Vector3.Lerp(scaleFrom, scaleTo, curvePercent);
 			_ballTransform.localScale = scale;
 
-			_ballMaterial.color = Color.Lerp(from, to, percent);
+			_ballMaterial.color = Color.Lerp(from, to, curvePercent);
 			
 			return duration;
 		}

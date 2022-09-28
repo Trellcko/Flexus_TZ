@@ -24998,7 +24998,7 @@ ParticleSystemRenderer:
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
-  m_EnableGPUInstancing: 0
+  m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
@@ -25057,7 +25057,7 @@ GameObject:
   - component: {fileID: 1897980310}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25137,7 +25137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d02ce429ab2084bbfbc0620a5628e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTag: Player
+  _ballTag: Player
 --- !u!114 &1897980310
 MonoBehaviour:
   m_ObjectHideFlags: 0

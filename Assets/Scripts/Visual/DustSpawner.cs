@@ -9,6 +9,7 @@ namespace Trell.Flexus_TZ.Visual
 	{
         [SerializeField] private Dust _dustPrefab;
 
+        [Min(0)]
         [SerializeField] private int _initSpawningCount = 3;
 
 		private Pool<Dust> _pool;
