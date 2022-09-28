@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mass: 1
+  _drag: 0
 --- !u!114 &1530916093
 MonoBehaviour:
   m_ObjectHideFlags: 0

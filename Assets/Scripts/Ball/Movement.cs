@@ -9,35 +9,38 @@ namespace Trell.Flexus_TZ.Ball
 	{
         [Min(1)]
         [SerializeField] private float _mass = 2f;
+        [Min(0)]
+        [SerializeField] private float _drag;
+        [Min(0.1f)]
+        [SerializeField] private float _radius = 0.5f;
 
-        public float Speed => _rigidbody.velocity.magnitude;
+        private Vector3 _velocity;
 
-        public Vector3 Direct => _rigidbody.velocity.normalized;
+        public float Speed => _velocity.magnitude;
 
-        private Rigidbody _rigidbody;
+        public Vector3 Direct => _velocity.normalized;
         
-        private Vector3 _lastVelocity;
-
-        private void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody>();
-        }
-
         private void FixedUpdate()
         {
-            _lastVelocity = _rigidbody.velocity;
+            Vector3 deltaPosition = _velocity * Time.fixedDeltaTime + _velocity * Time.fixedDeltaTime;
+
+            transform.position += deltaPosition;
+            _velocity *= Mathf.Clamp01(1 - _drag * Time.fixedDeltaTime);
+
+            Vector3 deltaPositionForRotation = new Vector3(deltaPosition.z, 0, -deltaPosition.x);
+
+            float angel = deltaPositionForRotation.magnitude * (180f / Mathf.PI) / _radius;
+            transform.rotation = Quaternion.Euler(deltaPositionForRotation.normalized * angel) * transform.rotation;
         }
+
 
         public void Reflect(Vector3 normal)
         {
-            float speed = _lastVelocity.magnitude;
-            Vector3 direct = Vector3.Reflect(_lastVelocity.normalized, normal);
-            _rigidbody.velocity = direct * speed;
-        }
+            _velocity = Vector3.Reflect(_velocity, normal);        }
 
         public void AddForce(Vector3 force)
         {
-            _rigidbody.velocity += force / _mass;
+            _velocity += force;
         }
     }
 }
