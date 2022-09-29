@@ -22,17 +22,34 @@ namespace Trell.Flexus_TZ.Ball
         
         private void FixedUpdate()
         {
-            Vector3 deltaPosition = _velocity * Time.fixedDeltaTime + _velocity * Time.fixedDeltaTime;
+            Vector3 deltaPosition = Move();
 
-            transform.position += deltaPosition;
+            CalculateVelocity();
+
+            RotateInDirection(deltaPosition);
+        }
+
+        private void CalculateVelocity()
+        {
             _velocity *= Mathf.Clamp01(1 - _drag * Time.fixedDeltaTime);
+        }
 
+        private void RotateInDirection(Vector3 deltaPosition)
+        {
             Vector3 deltaPositionForRotation = new Vector3(deltaPosition.z, 0, -deltaPosition.x);
 
             float angel = deltaPositionForRotation.magnitude * (180f / Mathf.PI) / _radius;
+
             transform.rotation = Quaternion.Euler(deltaPositionForRotation.normalized * angel) * transform.rotation;
         }
 
+        private Vector3 Move()
+        {
+            Vector3 deltaPosition = _velocity * Time.fixedDeltaTime + _velocity * Time.fixedDeltaTime;
+
+            transform.position += deltaPosition;
+            return deltaPosition;
+        }
 
         public void Reflect(Vector3 normal)
         {

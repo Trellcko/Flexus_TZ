@@ -2047,74 +2047,18 @@ PrefabInstance:
       propertyPath: _score
       value: 
       objectReference: {fileID: 1222438611}
-    - target: {fileID: 1437773734, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: m_CastShadows
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1530916092, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
       propertyPath: _drag
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
-    - target: {fileID: 1530916094, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _bouncingAnimationDuration
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530916094, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _bouncingCurve.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530916094, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _bouncingCurve.m_Curve.Array.data[1].time
-      value: 0.4974181
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530916094, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _bouncingCurve.m_Curve.Array.data[2].time
-      value: 0.9916687
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530916094, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _bouncingCurve.m_Curve.Array.data[1].value
-      value: 0.99876
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530916094, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _bouncingCurve.m_Curve.Array.data[2].value
-      value: -0.0014152527
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530916094, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _bouncingCurve.m_Curve.Array.data[1].inSlope
-      value: -0.004731934
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530916094, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _bouncingCurve.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530916094, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _bouncingCurve.m_Curve.Array.data[1].outSlope
-      value: -0.004731934
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530916094, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _bouncingCurve.m_Curve.Array.data[1].outWeight
-      value: 0.4773191
+    - target: {fileID: 1530916092, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
+      propertyPath: _radius
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 1672084031, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
       propertyPath: _draggingPanel
       value: 
       objectReference: {fileID: 802814518}
-    - target: {fileID: 1672084031, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _draggingMultiplayer
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 579630677532108210, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: m_Positions.Array.data[1].z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 579630677532108210, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 579630677532108210, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.a
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 731581185247713771, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2163,18 +2107,10 @@ PrefabInstance:
       propertyPath: _draggingPanel
       value: 
       objectReference: {fileID: 802814518}
-    - target: {fileID: 2406213433508103118, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: _draginPanelMultiplayer
-      value: 0.03
-      objectReference: {fileID: 0}
     - target: {fileID: 3736900619216491280, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
       propertyPath: _dustSpawner
       value: 
       objectReference: {fileID: 961194561}
-    - target: {fileID: 4491379540716658925, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6277106901490559765, guid: 793ef6a4abaf32c4286dadd67adc107d, type: 3}
       propertyPath: m_Name
       value: Ball
