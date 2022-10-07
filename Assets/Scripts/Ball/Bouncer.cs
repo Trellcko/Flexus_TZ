@@ -9,7 +9,7 @@ namespace Trell.Flexus_TZ.Ball
 		[SerializeField] private Material _ballMaterial;
 		[SerializeField] private Transform _ballTransform;
 
-		[Range(0.1f, 0.5f)]
+		[Range(0.1f, 10f)]
 		[SerializeField] private float _bouncingAnimationDuration = 0.2F;
 		[Range(1, 10)]
 		[SerializeField] private float _minPowerToBounce = 1;
@@ -22,9 +22,12 @@ namespace Trell.Flexus_TZ.Ball
 
 		[SerializeField] private Color _boucningColor;
 
+		private Vector3 _startScale;
+		private Color _startColor;
 
 	    private readonly int _maxPower = 10;
 		private readonly int _minPower = 1;
+
 
 		/// <summary>
 		/// Set Power from 1 to 10
@@ -38,7 +41,8 @@ namespace Trell.Flexus_TZ.Ball
 			{
 				return;
 			}
-
+			_startColor = _ballMaterial.color;
+			_startScale = _ballTransform.localScale;
 			Vector3 bouncingScale = CalculateBounceScale(power);
 
 			StartCoroutine(PlayBouncingAnimationCorun(bouncingScale, _boucningColor, rotation));
@@ -65,10 +69,11 @@ namespace Trell.Flexus_TZ.Ball
 			_ballTransform.rotation = rotation;
 			while (duration <= _bouncingAnimationDuration)
             {
-				duration =	BounceAnimationTick(duration, Vector3.one, bouncingScale, Color.white, bouncingColor, rotation);
+				duration =	BounceAnimationTick(duration, _startScale, bouncingScale, _startColor, bouncingColor, rotation);
 
 				yield return null;
             }
+			_ballMaterial.color = _startColor;
 		}
 
 		private float BounceAnimationTick(float duration, Vector3 scaleFrom, Vector3 scaleTo, Color from, Color to, Quaternion rotation)
