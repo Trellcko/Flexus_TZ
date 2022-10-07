@@ -413,6 +413,7 @@ MonoBehaviour:
   _wallTag: Wall
   _coinTag: Coin
   _spikeTag: Spike
+  _goalTag: 
 --- !u!114 &2406213433508103118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +477,7 @@ MonoBehaviour:
   _movement: {fileID: 1530916092}
   _dustSpawner: {fileID: 0}
   _spikeCollidedBouncer: {fileID: 1589633841}
+  _deadPanel: {fileID: 0}
 --- !u!1 &7016392448112603011
 GameObject:
   m_ObjectHideFlags: 0

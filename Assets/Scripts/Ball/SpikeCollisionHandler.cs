@@ -11,6 +11,7 @@ namespace Trell.Flexus_TZ.Ball
         [SerializeField] private Movement _movement;
         [SerializeField] private DustSpawner _dustSpawner;
         [SerializeField] private Bouncer _spikeCollidedBouncer;
+        [SerializeField] private DeadPanel _deadPanel;
 
         private void OnEnable()
         {
@@ -28,6 +29,7 @@ namespace Trell.Flexus_TZ.Ball
             _spikeCollidedBouncer.PlayBounchingAnimation(Vector3.one, Color.white, 1, transform.rotation);
             _movement.VelocityChange(Vector3.zero);
             _dustSpawner.Spawn(contactPoint.point, Quaternion.LookRotation(contactPoint.normal));
+            _deadPanel.gameObject.SetActive(true);
         }
     }
 }

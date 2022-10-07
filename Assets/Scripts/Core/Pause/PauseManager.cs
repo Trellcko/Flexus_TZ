@@ -50,9 +50,17 @@ namespace Trell.Flexus_TZ.Core.Pause
             }
         }
 
-		public void Subscribe(IPauseHandler paused)
+		public void UnSubscribe(IPauseHandler pauseHandler)
         {
-			_subscribers.Add(paused);
+			if(_subscribers.Contains(pauseHandler))
+            {
+				_subscribers.Remove(pauseHandler);
+            }
+        }
+
+		public void Subscribe(IPauseHandler pauseHandler)
+        {
+			_subscribers.Add(pauseHandler);
         }
 	}
 }

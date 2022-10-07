@@ -21,9 +21,14 @@ namespace Trell.Flexus_TZ.Ball
 
         private int _pauseModifier = 1;
 
-        private void Awake()
+        private void OnEnable()
         {
             PauseManager.Instance.Subscribe(this);
+        }
+
+        private void OnDisable()
+        {
+            PauseManager.Instance.UnSubscribe(this);
         }
 
         private void FixedUpdate()

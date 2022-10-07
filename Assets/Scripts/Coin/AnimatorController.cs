@@ -11,9 +11,14 @@ namespace Trell.Flexus_TZ.Coin
 
         [SerializeField] private ParticleSystem[] _particleSystems;
 
-        private void Awake()
+        private void OnEnable()
         {
             PauseManager.Instance.Subscribe(this);
+        }
+
+        private void OnDisable()
+        {
+            PauseManager.Instance.UnSubscribe(this);
         }
 
         public void OnPause()

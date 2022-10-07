@@ -13,8 +13,6 @@ namespace Trell.Flexus_TZ.Visual
 
         private void Awake()
         {
-			PauseManager.Instance.Subscribe(this);
-
 			Duration = _spheres.main.duration;
 			
 			float quadsDuration = _quads.main.duration;
@@ -25,7 +23,17 @@ namespace Trell.Flexus_TZ.Visual
             }
         }
 
-		public void Play()
+        private void OnEnable()
+        {
+            PauseManager.Instance.Subscribe(this);
+        }
+
+        private void OnDisable()
+        {
+            PauseManager.Instance.UnSubscribe(this);
+        }
+
+        public void Play()
         {
 			_spheres.Play();
 			_quads.Play();

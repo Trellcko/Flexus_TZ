@@ -8,11 +8,11 @@ namespace Trell.Flexus_TZ.UI
     [RequireComponent(typeof(Image))]
 	public class PauseButton : MonoBehaviour, IPointerClickHandler
 	{
-        [SerializeField] private GameObject _pausePanel;
+        [SerializeField] private PausePanel _pausePanel;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            _pausePanel.SetActive(true);
+            _pausePanel.gameObject.SetActive(true);
             PauseManager.Instance.Pause();
         }
     }
