@@ -29,7 +29,7 @@ namespace Trell.Flexus_TZ.Ball
 
             _movement.Reflect(normal);
 
-            _bouncer.PlayBounchingAnimation(_movement.Speed, rotationToNormal);
+            _bouncer.PlayBounchingAnimation(Vector3.one, Color.white, _movement.Speed, rotationToNormal);
             _dustSpawner.Spawn(contactPoint.point, rotationToNormal);
         }
     }

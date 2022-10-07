@@ -25125,6 +25125,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1897980311}
   _dieTriggerName: Dead
+  _particleSystems:
+  - {fileID: 1774085342}
+  - {fileID: 620652889}
+  - {fileID: 1289157750978962931}
+  - {fileID: 6196999322967979855}
+  - {fileID: 2483710631823065438}
+  - {fileID: 340296000}
 --- !u!114 &1897980312
 MonoBehaviour:
   m_ObjectHideFlags: 0

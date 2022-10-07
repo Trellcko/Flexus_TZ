@@ -16,6 +16,11 @@ namespace Trell.Flexus_TZ.Ball
             _draggingPanel.DragEnded += OnDragEnded;
         }
 
+        private void OnDisable()
+        {
+            _draggingPanel.DragEnded -= OnDragEnded;
+        }
+
         private void OnDragEnded()
         {
             Vector3 force = (_draggingPanel.StartPosition - _draggingPanel.CurrentPosition) * _draginPanelMultiplayer;

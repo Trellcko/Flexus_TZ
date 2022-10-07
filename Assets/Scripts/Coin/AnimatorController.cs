@@ -1,14 +1,40 @@
+using Trell.Flexus_TZ.Core.Pause;
 using UnityEngine;
 
 namespace Trell.Flexus_TZ.Coin
 {
 	[AddComponentMenu("Coin Animator Controller")]
-	public class AnimatorController : MonoBehaviour
+	public class AnimatorController : MonoBehaviour, IPauseHandler
 	{
 		[SerializeField] private Animator _animator;
 		[SerializeField] private string _dieTriggerName;
 
-		public void PlayDiedAnimation()
+        [SerializeField] private ParticleSystem[] _particleSystems;
+
+        private void Awake()
+        {
+            PauseManager.Instance.Subscribe(this);
+        }
+
+        public void OnPause()
+        {
+            _animator.speed = 0;
+            foreach(var particleSystem in _particleSystems)
+            {
+                particleSystem.Pause();
+            }
+        }
+
+        public void OnUnPause()
+        {
+            _animator.speed = 1;
+            foreach (var particleSystem in _particleSystems)
+            {
+                particleSystem.Play();
+            }
+        }
+
+        public void PlayDiedAnimation()
         {
 			_animator.SetTrigger(_dieTriggerName);
         }

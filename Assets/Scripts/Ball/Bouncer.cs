@@ -1,10 +1,11 @@
 using System.Collections;
+using Trell.Flexus_TZ.Core.Pause;
 using UnityEngine;
 
 namespace Trell.Flexus_TZ.Ball
 {
 	[AddComponentMenu("Ball Animator")]
-	public class Bouncer : MonoBehaviour
+	public class Bouncer : MonoBehaviour, IPauseHandler
 	{
 		[SerializeField] private Material _ballMaterial;
 		[SerializeField] private Transform _ballTransform;
@@ -22,9 +23,6 @@ namespace Trell.Flexus_TZ.Ball
 
 		[SerializeField] private Color _boucningColor;
 
-		private Vector3 _startScale;
-		private Color _startColor;
-
 	    private readonly int _maxPower = 10;
 		private readonly int _minPower = 1;
 
@@ -33,7 +31,7 @@ namespace Trell.Flexus_TZ.Ball
 		/// Set Power from 1 to 10
 		/// </summary>
 		/// <param name="power">  </param>
-		public void PlayBounchingAnimation(float power, Quaternion rotation)
+		public void PlayBounchingAnimation(Vector3 startScale, Color startColor, float power, Quaternion rotation)
         {
 			power = Mathf.Clamp(power * _bouncingMultiplayer, _minPower, _maxPower);
 
@@ -41,11 +39,10 @@ namespace Trell.Flexus_TZ.Ball
 			{
 				return;
 			}
-			_startColor = _ballMaterial.color;
-			_startScale = _ballTransform.localScale;
+
 			Vector3 bouncingScale = CalculateBounceScale(power);
 
-			StartCoroutine(PlayBouncingAnimationCorun(bouncingScale, _boucningColor, rotation));
+			StartCoroutine(PlayBouncingAnimationCorun(startScale, startColor, bouncingScale, _boucningColor, rotation));
         }
 
 		private Vector3 CalculateBounceScale(float power)
@@ -62,18 +59,20 @@ namespace Trell.Flexus_TZ.Ball
 
         }
 
-		private IEnumerator PlayBouncingAnimationCorun(Vector3 bouncingScale, Color bouncingColor, Quaternion rotation)
+		private IEnumerator PlayBouncingAnimationCorun(Vector3 startScale, Color startColor, Vector3 bouncingScale, Color bouncingColor, Quaternion rotation)
         {
 			float duration = 0;
 
 			_ballTransform.rotation = rotation;
 			while (duration <= _bouncingAnimationDuration)
             {
-				duration =	BounceAnimationTick(duration, _startScale, bouncingScale, _startColor, bouncingColor, rotation);
-
+				if (PauseManager.Instance.IsPaused == false)
+				{
+					duration = BounceAnimationTick(duration, startScale, bouncingScale, startColor, bouncingColor, rotation);
+				}
 				yield return null;
             }
-			_ballMaterial.color = _startColor;
+			_ballMaterial.color = startColor;
 		}
 
 		private float BounceAnimationTick(float duration, Vector3 scaleFrom, Vector3 scaleTo, Color from, Color to, Quaternion rotation)
@@ -95,5 +94,15 @@ namespace Trell.Flexus_TZ.Ball
 			
 			return duration;
 		}
-	}
+
+        public void OnPause()
+        {
+
+        }
+
+        public void OnUnPause()
+        {
+
+        }
+    }
 }

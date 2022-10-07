@@ -1,9 +1,10 @@
+using Trell.Flexus_TZ.Core.Pause;
 using Trell.Flexus_TZ.Core.Pool;
 using UnityEngine;
 
 namespace Trell.Flexus_TZ.Visual
 {
-	public class Dust : MonoBehaviour, IPoolable
+	public class Dust : MonoBehaviour, IPoolable, IPauseHandler
 	{
 		[SerializeField] private ParticleSystem _spheres;
 		[SerializeField] private ParticleSystem _quads;
@@ -12,6 +13,8 @@ namespace Trell.Flexus_TZ.Visual
 
         private void Awake()
         {
+			PauseManager.Instance.Subscribe(this);
+
 			Duration = _spheres.main.duration;
 			
 			float quadsDuration = _quads.main.duration;
@@ -27,5 +30,17 @@ namespace Trell.Flexus_TZ.Visual
 			_spheres.Play();
 			_quads.Play();
         }
+
+        public void OnPause()
+        {
+			_spheres.Pause();
+			_quads.Pause();
+        }
+
+        public void OnUnPause()
+        {
+			_spheres.Play();
+			_quads.Play();
+		}
     }
 }

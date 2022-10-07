@@ -17,6 +17,11 @@ namespace Trell.Flexus_TZ.Ball
             _collisionEvents.CoinCollided += OnCoinCollided;
         }
 
+        private void OnDisable()
+        {
+            _collisionEvents.CoinCollided -= OnCoinCollided;
+        }
+
         private void OnCoinCollided()
         {
             _score.Add(_scoresForCoin);

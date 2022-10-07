@@ -1,5 +1,120 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1084969125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1084969126}
+  - component: {fileID: 1084969127}
+  m_Layer: 0
+  m_Name: WallBounce
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1084969126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084969125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1149257171}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1084969127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084969125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d976d98b5947f2f4d94894118928ec96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ballMaterial: {fileID: 2100000, guid: 980ede9e09ed69547baa0c3ea5d4e879, type: 2}
+  _ballTransform: {fileID: 731581185247713771}
+  _bouncingAnimationDuration: 0.2
+  _minPowerToBounce: 3
+  _bouncingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4974181
+      value: 0.99876
+      inSlope: -0.004731934
+      outSlope: -0.004731934
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.4773191
+    - serializedVersion: 3
+      time: 0.9916687
+      value: -0.0014152527
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _bouncingMultiplayer: 0.6
+  _bouncingScaleMax: {x: 1.4, y: 1.4, z: 0.5}
+  _boucningColor: {r: 0.7924528, g: 0.26464927, b: 0.26464927, a: 1}
+--- !u!1 &1149257170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1149257171}
+  m_Layer: 0
+  m_Name: Animations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1149257171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149257170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1084969126}
+  - {fileID: 1589633840}
+  m_Father: {fileID: 731581185247713771}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1437773731
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +222,98 @@ MonoBehaviour:
   _bouncingMultiplayer: 1
   _bouncingScaleMax: {x: 0, y: 0, z: 0}
   _boucningColor: {r: 0.8679245, g: 0.12609467, b: 0.12609467, a: 1}
+--- !u!1 &1589633839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1589633840}
+  - component: {fileID: 1589633841}
+  m_Layer: 0
+  m_Name: SpikeBounce
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1589633840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589633839}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1149257171}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1589633841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589633839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d976d98b5947f2f4d94894118928ec96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ballMaterial: {fileID: 2100000, guid: 980ede9e09ed69547baa0c3ea5d4e879, type: 2}
+  _ballTransform: {fileID: 731581185247713771}
+  _bouncingAnimationDuration: 0.3
+  _minPowerToBounce: 1
+  _bouncingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.25752234
+      value: 0.5505238
+      inSlope: 0.2516688
+      outSlope: 0.2516688
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.58141065
+      value: 0.30835915
+      inSlope: 0.5621867
+      outSlope: 0.5621867
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _bouncingMultiplayer: 18.97
+  _bouncingScaleMax: {x: 0, y: 0, z: 0}
+  _boucningColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &6277106901490559765
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,10 +327,10 @@ GameObject:
   - component: {fileID: 4491379540716658925}
   - component: {fileID: 1530916092}
   - component: {fileID: 1530916093}
-  - component: {fileID: 1530916094}
-  - component: {fileID: 3736900619216491280}
   - component: {fileID: 2406213433508103118}
+  - component: {fileID: 3736900619216491280}
   - component: {fileID: 1248895248}
+  - component: {fileID: 7245085559141514800}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Player
@@ -144,6 +351,7 @@ Transform:
   m_Children:
   - {fileID: 6057815916875543543}
   - {fileID: 1437773732}
+  - {fileID: 1149257171}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -188,9 +396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0dc14fe04c4717428b442d02aa29fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mass: 1
-  _drag: 0.7
-  _radius: 1
+  _drag: 0.8
+  _radius: 1.25
 --- !u!114 &1530916093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,74 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wallTag: Wall
   _coinTag: Coin
---- !u!114 &1530916094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6277106901490559765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d976d98b5947f2f4d94894118928ec96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ballMaterial: {fileID: 2100000, guid: 980ede9e09ed69547baa0c3ea5d4e879, type: 2}
-  _ballTransform: {fileID: 731581185247713771}
-  _bouncingAnimationDuration: 0.2
-  _minPowerToBounce: 3
-  _bouncingCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.4974181
-      value: 0.99876
-      inSlope: -0.004731934
-      outSlope: -0.004731934
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.4773191
-    - serializedVersion: 3
-      time: 0.9916687
-      value: -0.0014152527
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _bouncingMultiplayer: 0.6
-  _bouncingScaleMax: {x: 1.4, y: 1.4, z: 0.5}
-  _boucningColor: {r: 0.7924528, g: 0.26464927, b: 0.26464927, a: 1}
---- !u!114 &3736900619216491280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6277106901490559765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 763988461fcca3d449ceaa505f45e066, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movement: {fileID: 1530916092}
-  _collisionEvents: {fileID: 1530916093}
-  _dustSpawner: {fileID: 0}
-  _bouncer: {fileID: 1530916094}
+  _spikeTag: Spike
 --- !u!114 &2406213433508103118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +428,22 @@ MonoBehaviour:
   _draggingPanel: {fileID: 0}
   _draginPanelMultiplayer: 0.03
   _movement: {fileID: 1530916092}
+--- !u!114 &3736900619216491280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6277106901490559765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763988461fcca3d449ceaa505f45e066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movement: {fileID: 1530916092}
+  _collisionEvents: {fileID: 1530916093}
+  _dustSpawner: {fileID: 0}
+  _bouncer: {fileID: 1084969127}
 --- !u!114 &1248895248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +459,23 @@ MonoBehaviour:
   _collisionEvents: {fileID: 1530916093}
   _score: {fileID: 0}
   _scoresForCoin: 50
+--- !u!114 &7245085559141514800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6277106901490559765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f19209f621981e49b25dddc873d28c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collisionEvents: {fileID: 1530916093}
+  _draggingPanelHandler: {fileID: 2406213433508103118}
+  _movement: {fileID: 1530916092}
+  _dustSpawner: {fileID: 0}
+  _spikeCollidedBouncer: {fileID: 1589633841}
 --- !u!1 &7016392448112603011
 GameObject:
   m_ObjectHideFlags: 0

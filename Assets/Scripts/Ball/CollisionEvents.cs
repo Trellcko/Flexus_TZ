@@ -13,10 +13,14 @@ namespace Trell.Flexus_TZ.Ball
         [TagProperty]
         [SerializeField] private string _coinTag;
 
+        [TagProperty]
+        [SerializeField] private string _spikeTag;
+
         private ContactPoint[] _contactPoints =  new ContactPoint[1];
 
 		public event Action<ContactPoint> WallCollided;
         public event Action CoinCollided;
+        public event Action<ContactPoint> SpikeCollided;
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -24,6 +28,12 @@ namespace Trell.Flexus_TZ.Ball
             {
                 collision.GetContacts(_contactPoints);
                 WallCollided.Invoke(_contactPoints[0]);
+            }
+
+            else if(collision.gameObject.CompareTag(_spikeTag))
+            {
+                collision.GetContacts(_contactPoints);
+                SpikeCollided?.Invoke(_contactPoints[0]);
             }
         }
 
